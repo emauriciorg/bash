@@ -1,5 +1,9 @@
 #!/bin/bash
 
+read fractal_quantity
+
+
+
 fractal()
 {
     if [[ $1 -le 1 ]]
@@ -25,10 +29,37 @@ void draw_factals(){
   *b_grid = 0;
   *c_grid = 0;
 
-		#base#
+
+#fill array with zeroes
+limit=63
+column=100
+for ((j=0;j<$limit;j++));
+do
+	for ((i=0;i<$column;i++));
+	do
+		array[$j,$i]='0';
+		echo -ne "${array[$j,$i]\t}"
+	done
+	echo ""
+done
+
+
+
+#base start
+		for ((j= $(rows-1);j<$((rows-1)-base);j--));
+		do
+
+			array[(array_width*j) +(columns)] = '1';
+#		${ array[(array_width*j) +(columns)]} =
+
+		sum=$((sum+input))
+		done
+
 		for (j = rows-1; j > ((rows-1) -base);j--){
-			p_grid[ (array_width * j ) + (columns)] = '1';
+			p_grid[ $((array_width * j ) + (columns))] = '1';
 		}
+#base end
+
 
 		b_grid = &p_grid[ (array_width * j )];
 
